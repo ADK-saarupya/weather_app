@@ -3,7 +3,7 @@ let inputPlace = document.querySelector("#inputPlace");
 let audio=new Audio("vibration.mp3")
 
 
-let key = "38b9d123474c120443f507c46da60e08";
+import { key } from "./key.js";
 
 
 //date
@@ -12,7 +12,7 @@ let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "S
 const date = new Date();
 
 
-
+let cityName;
 
 inputPlace.addEventListener("input", function () {
     cityName = inputPlace.value;
@@ -24,7 +24,7 @@ inputPlace.addEventListener("keypress", function (event) {
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${key}`)
             .then(response => response.json())
             .then((data) => {
-                console.log(data)
+                
                 if(data.cod==404){
                     weatherInfo.innerHTML=`<p id="error">Invalid place name...</p>`
                     audio.play();
