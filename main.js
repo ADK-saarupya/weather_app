@@ -6,7 +6,8 @@ let inputPlace = document.querySelector("#inputPlace");
 let audio=new Audio("vibration.mp3")
 
 
-import { key } from "./key.js";
+
+let key="e08bad90f81e840e2876e904707f5b9e";
 
 
 //date
