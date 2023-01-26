@@ -1,5 +1,4 @@
-//place your own API KEY
-//check openweathermap site to get your key
+
 
 let weatherInfo = document.querySelector(".weatherInfo");
 let inputPlace = document.querySelector("#inputPlace");
