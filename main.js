@@ -1,3 +1,5 @@
+//place your own API KEY
+
 let weatherInfo = document.querySelector(".weatherInfo");
 let inputPlace = document.querySelector("#inputPlace");
 let audio=new Audio("vibration.mp3")
