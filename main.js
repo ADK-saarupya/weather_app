@@ -19,12 +19,31 @@ let cityName;
 
 inputPlace.addEventListener("input", function () {
     cityName = inputPlace.value;
+    localStorage.setItem("city",cityName);
 
 
 });
+
+window.addEventListener("DOMContentLoaded",function(){
+    inputPlace.value=localStorage.getItem("city");
+    if(inputPlace.value!=""){
+    cityName=inputPlace.value;
+    displayWeatherInformation();
+    }else{
+        cityName="Kathmandu";
+        displayWeatherInformation();
+
+    }
+})
 inputPlace.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${key}`)
+        displayWeatherInformation();
+    }
+
+}
+)
+function displayWeatherInformation(){
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${key}`)
             .then(response => response.json())
             .then((data) => {
                 
@@ -70,8 +89,5 @@ inputPlace.addEventListener("keypress", function (event) {
 
             })
             .catch(err => "error found")
-    }
-
 }
-)
 
